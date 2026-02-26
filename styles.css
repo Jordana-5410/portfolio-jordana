@@ -1,28 +1,33 @@
-*{
+*
+{
     margin: 0;  /*Remover as margens padrão do navegador*/
     padding: 0; /*Remove os preenchimentos padrão do navegador*/
     box-sizing: border-box; /*Garante que bordas não aumentem o tamanho dos elementos */
     font-family: Arial, Helvetica, sans-serif;
 }
-body{
-    background-color:rgb(255, 241, 243);
-    background-repeat: no-repeat;
+
+body {
+    background-color: rgb(255, 241, 243);
     background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-color:rgb(255, 241, 243);
+    background-color: rgb(255, 241, 243);
+    
+    
+
 }
 
 /* Estilizar a barra de navegação */
 .navbar
 {
     background-color:lightpink;
-    color: #ffffff;
+    color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
-    box-shadow: 0 2px 5px lightpink;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1)
 }
 .navbar ul {
     display: flex;
@@ -40,9 +45,9 @@ body{
     transition: 0.4s; 
 }
 .navbar ul li a:hover{
-    background-color:rgb(255, 202, 210); /*deixa um fundo branco*/
+    background-color:rgb(255, 209, 216); /*adiciona um fundo branco*/
     color: #ffffff; /* adiciona uma cor diferente ao texto*/
-    box-shadow: 0px 4px 10px rgba(97, 97, 97, 0.97);
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
     /*0px -> move na horizontal
     4px -> move na vertical
     10px -> desfoque de 10px na sombra
@@ -51,111 +56,112 @@ body{
     */
     transform: translateY(-2px); /*move a box 2px para cima */
 }
-/*
-0px -> deslocamento horizontal
-4px deslocamento vertical - a sombra desce
-10px ->o quão "esfumado" a sombra fica
-rgba muda para cor preta e uma transparencia de 30%
-*/
 
+
+/* Container que limita o tamanho do Carrossel */
 .slider {
-    margin: 20px auto; /* CENTRALIZA NA TELA E DÁ MARGEM AO TOPO */
-    width: 800px; /*LARGURA FIXA DO CARROSSEL */
-    height: 400px; /* ALTURA FIXA DO CARROSSEL */
-    overflow: hidden; /*ESCONDE O QUE TIVER FORA DA CAIXA (AS OUTRAS FOTOS) */
-    border-radius: 10px; /*ARREDONDAR OS CANTOS DA IMAGEM */
-    box-shadow: 0 10px 20px rgba(97, 97, 97, 0.97); /*SOMBRA PRA DAR PROFUDINDADE */
+    margin: 20px auto; /*Centraliza na tela e da margem no topo */
+    width: 800px; /*Largura fixa do carrossel */
+    height: 400px; /*Altura fixa do carrossel */
+    overflow: hidden; /*Esconde o que estiver fora da caixa (as outras fotos)*/
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); /*Sombra para dar profundidade */
 }
+
+/*Div que contem as imagens alinhadas */
 .slider-content
 {
-    width: 400%; /*MANTEM 400% POIS TEMOS 4 IMAGENS */
-    height: 100%; /*OCUPA 100% DO OBJETO "PAI"(SLIDER) */
-    display: flex; /*IMAGENS LADO A LADO */
+    width: 400%;
+    height: 100%; /*Ocupa 100% da altura do objeto "PAI" */
+    display: flex; /*Coloca as imagens uma do lado da outra */
 }
+
+/* Esconde os botões originais */
 .slider-content input
 {
-    display: none; /*OCULTA OS BOTÕES (RADIO) ORIGINAIS */
+    display: none; /*Esconde os botões RADIO */
 }
+/* Estilo de cada caixa de imagem */
 .slide-box
 {
-    width: 25%; /*CADA FOTO UTILIZA 25% DO TOTAL DE 100% */
-    transition: 0.6s; /* TEMPO DE ANIMAÇÃO DE TRANSIÇÃO ENTRE CADA IMAGEM */
-}
-.slide-box img 
-{
-    width: 800px; /*OCUPA 100% DO TAMANHO DO SLIDER */
-    height: 400px; /* OCUPA 100% DO TAMANHO DO SLIDER */
-    object-fit: cover; /* corta a imagem para preencher o espaço sem achatar */
+    width: 25%; /*Cada foto ocupa 25% (100% divido por 4) */
+    transition: 0.6s; /* Tempo de animação de deslize entre as fotos */
 }
 
-/* LÓGICA DO MOVIMENTO DAS IMAGENS: */
-/* 1º IMAGEM: Margen 0 */
+/* Garante que a imagem cubra todo o espaço sem distorcer */
+.slide-box img
+{
+    width: 800px; /* Largura fixa para manter o padrão */
+    height: 400px; /* Altura fixa para manter o padrão */
+    object-fit: cover; /*Corta a imagem para preencher o espaço sem achatar */
+}
+
+/* LOGICA DE MOVIMENTO: AJUSTADO PARA 4 IMAGENS */
+/* Imagem 1: Margem 0 */
 #radio1:checked ~ .first { margin-left: 0; }
 
-/* 2º IMAGEM: Margen 25% */
+/* Imagem 2: Pula a primeira (25%) */
 #radio2:checked ~ .first { margin-left: -25%; }
-/* 3º IMAGEM: Margen 50% */
+
+/* Imagem 3: pula as duas primeiras (50%) */
 #radio3:checked ~ .first { margin-left: -50%; }
 
-/* 4º IMAGEM: Margen 75% */
+/* Imagem 4: pula as três primeiras (75%) */
 #radio4:checked ~ .first { margin-left: -75%; }
 
-/* Estilo dos botões manuais */
-.nav-manual {
-    position: absolute; /*posicionamento fixo em relação ao slider */
-    width: 800px; /* Mesma da largura do slider */
-    margin-top: -40px; /* Joga os botões para dentro das imagens */
-    display: flex; /*Alinhada em linha */
-    justify-content: center;
+/* ESTILO DOS BOTÕES MANUAIS (BOLINHAS) */
+.nav-manual 
+{
+    position: absolute; /* POSICIONAMENTO FIXO EM RELAÇÃO AO SLIDER */
+    width: 800px; /* Mesma largura do slider */
+    margin-top: -40px; /* Joga as bolinhas pra dentro da imagem */
+    display: flex;
+    justify-content: center; /* Centraliza as bolinhas horizontalmente */
 }
-.manual-btn {
-    border: 2px solid rgb(255, 255, 255);
-    padding: 5px; /*tamanho do botão */
-    border-radius: 10px; /*Distância entre as bolinhas*/
+.manual-btn 
+{
+    border: 2px solid white; /* Borda branca para visibilidade */
+    padding: 5px; /*Tamanho da bolinha */
+    border-radius: 10px;
     cursor: pointer;
-    margin-left: 10px; /*Distância entre as bolinhas */
-    transition: 0.3s; /*Suaviza a mudança de cor do hover*/
- }
- .manual-btn:hover{
-    background-color:white /*muda a cor (por completo) quando clicar */
- }
+    margin-left: 10px; /*Espaçamento entre as bolinhas */
+    transition: 0.3s; /*Suaviza a mudança de cor no hover */
+}
+.manual-btn:hover{  
+    background-color: white;
+}
 
- .rodape-principal 
- {
+/* ESTILIZAÇÃO DO RODAPÉ DA PÁGINA */
+.rodape-principal{
     background-color:lightpink;
     color: white;
     padding: 40px 0 20px 0;
-    margin-top: 50px;
- }
- .contrainer-rodape 
- {
+    margin-top: 50px; /*afastar da galeria */
+    text-align: center;
+}
+.container-rodape{
     display: flex;
-    justify-content: space-around;
+    justify-content:space-around;
     align-items: center;
-    flex-wrap: wrap; /*faz os itens pularem de linha em tela pequena */
+    flex-wrap: wrap; /*FAZ OS ITENS PULAREM LINHAS EM TELAS PEQUENAS */
     max-width: 1200px;
-    margin: 0 auto;
- }
- .info-copyrigth p {
-    margin-bottom: 5px;
-    font-size: 14px;
-    opacity: 0.8;
- }
- .links-sociais a {
+    margin: 0 auto; /*centralizar o container na tela */
+}
+.links-sociais a
+{
     color: white;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 15px; /*ESPAÇAMENTO ENTRE OS LINKS */
     font-weight: bold;
     transition: 0.3s;
- }
- .links-sociais a:hover {
-    color:rgb(255, 132, 150);
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.97);
- }
-.rodape-inferior
-{
+}
+.links-sociais a:hover{
+    color:rgb(255, 141, 158);
+    text-shadow: 0 0 5px(255,255,255, 0.2);
+}
+.rodape-inferior{
     text-align: center;
-    border-top: 1px solid(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /*LINHA DIVISÓRIA */
     margin-top: 30px;
     padding-top: 20px;
     font-size: 12px;
@@ -185,4 +191,8 @@ rgba muda para cor preta e uma transparencia de 30%
     color: rgb(23, 23, 23);
     font-size: 20px;
     display: flex;
+}    
+
+.subtitulo1 {
+    text-align:center;
 }
