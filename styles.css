@@ -4,6 +4,7 @@
     padding: 0; /*Remove os preenchimentos padrão do navegador*/
     box-sizing: border-box; /*Garante que bordas não aumentem o tamanho dos elementos */
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 body {
@@ -13,9 +14,11 @@ body {
     background-attachment: fixed;
     background-position: center;
     background-color: rgb(255, 241, 243);
-    
-    
+}
 
+.logo{
+    font-size: 50px;
+    font-family:fantasy;
 }
 
 /* Estilizar a barra de navegação */
@@ -28,33 +31,6 @@ body {
     align-items: center;
     padding: 15px 5%;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1)
-}
-.navbar ul {
-    display: flex;
-    list-style: none;
-    margin: 0; /*remove as margens da lista */
-    padding: 0; /*remove o preenchimento interno */
-}
-
-.navbar ul li a{
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    padding: 10px 20px;
-    display: block;
-    border-radius: 5px;
-    transition: 0.4s; 
-}
-.navbar ul li a:hover{
-    background-color:rgb(255, 209, 216); /*adiciona um fundo branco*/
-    color: #ffffff; /* adiciona uma cor diferente ao texto*/
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-    /*0px -> move na horizontal
-    4px -> move na vertical
-    10px -> desfoque de 10px na sombra
-    rgba(0,0,0,0.3) adiciona a cor preta e uma transparência 
-        de 30%(0.3)
-    */
-    transform: translateY(-2px); /*move a box 2px para cima */
 }
 
 
@@ -168,31 +144,64 @@ body {
     opacity: 0.6;
 }
 
-.titulo {
+.borda{
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.titulo{
     text-align: center;
+    color:rgb(240, 0, 120);
+    font-family:cursive;
+    font-size: 40px;
 }
 
 .conteudo-principal1{
     text-align: center;
     color: rgb(23, 23, 23);
     font-size: 20px;
-    display: flex;
-}
+} 
 
 .conteudo-principal2{
-    text-align: center;
+    text-align:left;
     color: rgb(23, 23, 23);
     font-size: 20px;
-    display: flex;
 }
 
-.conteudo-principal3{
-    text-align: center;
-    color: rgb(23, 23, 23);
-    font-size: 20px;
-    display: flex;
-}    
-
-.subtitulo1 {
+.subtitulo{
     text-align:center;
+    color:rgb(240, 0, 120);
+    font-family:cursive;
+    font-size: 40px;
+}
+
+.container {
+    display: flex;
+    align-items: center;      /* centraliza verticalmente imagem e texto */
+    justify-content: center;  /* centraliza o conjunto no meio da tela */
+    gap: 30px;                /* espaço entre imagem e texto */
+    margin: 40px 0;           /* espaço em cima e embaixo */
+}
+
+.imagem-animada {
+    width: 250px;
+}
+
+.imagem-animada:hover {
+    animation: flutuar 0.6s infinite alternate ease-in-out;
+}
+
+@keyframes flutuar {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+.texto {
+    font-size: 18px;
+    max-width: 400px;
 }
