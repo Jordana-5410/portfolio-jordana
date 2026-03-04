@@ -178,14 +178,14 @@ body {
 
 .container {
     display: flex;
-    align-items: center;      /* centraliza verticalmente imagem e texto */
-    justify-content: center;  /* centraliza o conjunto no meio da tela */
-    gap: 30px;                /* espaço entre imagem e texto */
-    margin: 40px 0;           /* espaço em cima e embaixo */
+    align-items: center;      
+    justify-content: center;  
+    gap: 30px;              
+    margin: 40px 0;          
 }
 
 .imagem-animada {
-    width: 250px; jjj
+    width: 250px;
 }
 
 .imagem-animada:hover {
