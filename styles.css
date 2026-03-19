@@ -10,99 +10,197 @@ body {
 
     font-family: 'Fredoka', sans-serif;
     background-color: rgb(255, 241, 243);
+    overflow-x: hidden;
+    position: relative;
 }
 
-.logo {
-  font-family: 'Baloo 2', cursive;
-  font-size: 50px;
+
+.logo{
+    font-family: 'Coiny', cursive;
+    font-size: 50px;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 
 /* Estilizar a barra de navegação */
-.navbar
-{
-    background-color:lightpink;
-    color: #fff;
+.navbar{
+    background: linear-gradient(90deg, lightpink, pink);
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1)
+    border-radius: 20px;
+    margin: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.topo-decorado{
+    position: relative;
+}
+
+.decoracao{
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.nuvem{
+    position: absolute;
+    z-index: 2;
+}
+
+.n1{
+    width: 300px;
+    left: -18px;
+    top: 20px;
+}
+
+.n2{
+    width: 300px;
+    left: 190px;
+    top: 20px;
+}
+
+.n3{
+    width: 300px;
+    left: 400px;
+    top: 20px;
+}
+
+.n4{
+    width: 300px;
+    right: -15px;
+    top: 20px;
+}
+
+.n5{
+    width: 300px;
+    right: 200px;
+    top: 20px;
+}
+
+.n6{
+    width: 300px;
+    right: 400px;
+    top: 20px;
+}
+
+.n7{
+    width: 300px;
+    right: 609px;
+    top: 20px;
+}
+
+.n8{
+    width: 300px;
+    left: 80px;
+    top: 10px;
+}
+
+.n9{
+    width: 300px;
+    right: 80px;
+    top: 10px;
+}
+
+.arcoiris1{
+    width: 300px;
+    height: 150px;
+    top: 20px;
+    left: 50%;
+    top: -50px;
+    transform: translateX(65%);
+}
+
+.arcoiris2{
+    width: 300px;
+    height: 150px;
+    top: 20px;
+    left: 50%;
+    top: -50px;
+    transform: translateX(27%);
+}
+
+.menu{
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.menu a{
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.menu a:hover{
+    transform: translateY(-4px);
+    border: 2px solid rgb(255, 215, 221);
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    background-color: rgb(255, 215, 221);
+    color: rgb(255, 255, 255);
+    transform: translateY(-3px);
 }
 
 
 /* Container que limita o tamanho do Carrossel */
 .slider {
     margin: 20px auto; /*Centraliza na tela e da margem no topo */
-    width: 800px; /*Largura fixa do carrossel */
-    height: 400px; /*Altura fixa do carrossel */
+    max-width: 800px; /*Largura fixa do carrossel */
     overflow: hidden; /*Esconde o que estiver fora da caixa (as outras fotos)*/
     border-radius: 10px; /* Cantos arredondados */
     box-shadow: 0 10px 20px rgba(0,0,0,0.3); /*Sombra para dar profundidade */
 }
 
 /*Div que contem as imagens alinhadas */
-.slider-content
-{
+.slider-content{
     width: 400%;
-    height: 100%; /*Ocupa 100% da altura do objeto "PAI" */
-    display: flex; /*Coloca as imagens uma do lado da outra */
+    height: 100%;
+    display: flex;
+    animation: slide 16s infinite;
 }
 
-/* Esconde os botões originais */
-.slider-content input
-{
-    display: none; /*Esconde os botões RADIO */
-}
 /* Estilo de cada caixa de imagem */
-.slide-box
-{
+.slide-box{
     width: 25%; /*Cada foto ocupa 25% (100% divido por 4) */
     transition: 0.6s; /* Tempo de animação de deslize entre as fotos */
 }
 
 /* Garante que a imagem cubra todo o espaço sem distorcer */
-.slide-box img
+.slide-box img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@keyframes slide
 {
-    width: 800px; /* Largura fixa para manter o padrão */
-    height: 400px; /* Altura fixa para manter o padrão */
-    object-fit: cover; /*Corta a imagem para preencher o espaço sem achatar */
+    0% {transform: translateX(0);}
+    20% {transform: translateX(0);}
+
+    25% {transform: translateX(-25%);}
+    45% {transform: translateX(-25%);}
+
+    50% {transform: translateX(-50%);}
+    70% {transform: translateX(-50%);}
+
+    75% {transform: translateX(-75%);}
+    95% {transform: translateX(-75%);}
+
+    100% {transform: translateX(0);}
 }
 
-/* LOGICA DE MOVIMENTO: AJUSTADO PARA 4 IMAGENS */
-/* Imagem 1: Margem 0 */
-#radio1:checked ~ .first { margin-left: 0; }
-
-/* Imagem 2: Pula a primeira (25%) */
-#radio2:checked ~ .first { margin-left: -25%; }
-
-/* Imagem 3: pula as duas primeiras (50%) */
-#radio3:checked ~ .first { margin-left: -50%; }
-
-/* Imagem 4: pula as três primeiras (75%) */
-#radio4:checked ~ .first { margin-left: -75%; }
-
-/* ESTILO DOS BOTÕES MANUAIS (BOLINHAS) */
-.nav-manual 
-{
-    position: absolute; /* POSICIONAMENTO FIXO EM RELAÇÃO AO SLIDER */
-    width: 800px; /* Mesma largura do slider */
-    margin-top: -40px; /* Joga as bolinhas pra dentro da imagem */
-    display: flex;
-    justify-content: center; /* Centraliza as bolinhas horizontalmente */
-}
-.manual-btn 
-{
-    border: 2px solid white; /* Borda branca para visibilidade */
-    padding: 5px; /*Tamanho da bolinha */
-    border-radius: 10px;
-    cursor: pointer;
-    margin-left: 10px; /*Espaçamento entre as bolinhas */
-    transition: 0.3s; /*Suaviza a mudança de cor no hover */
-}
-.manual-btn:hover{  
-    background-color: white;
-}
 
 /* ESTILIZAÇÃO DO RODAPÉ DA PÁGINA */
 .rodape-principal{
@@ -147,6 +245,12 @@ body {
   padding: 20px;
 }
 
+.resumo{
+    text-align: center;
+    color: rgb(23, 23, 23);
+    font-size: 20px;
+}
+
 .titulo{
     text-align: center;
     color:rgb(240, 0, 120);
@@ -184,9 +288,9 @@ body {
 
 /* Caixa fixa da imagem */
 .card-imagem {
-    width: 250px;
-    height: 300px;
-    background-color: rgb(255, 249, 250);
+    width: 280px;
+    height: 320px;
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
@@ -208,6 +312,12 @@ body {
     animation: flutuar 0.6s infinite alternate ease-in-out;
 }
 
+.card-imagem img {
+    max-width: 110%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
 /* Texto */
 .texto {
     font-size: 18px;
@@ -224,9 +334,135 @@ body {
     flex-direction: row-reverse;
 }
 
+.virar {
+    transform: scaleX(-1);
+}
+
 .subtitulo2{
     text-align:center;
     color:rgb(240, 0, 120);
     font-family:cursive;
     font-size: 40px;
+}
+
+.nome-personagem1{
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 50px;
+}
+
+.card-imagem:hover ~ .texto .nome-personagem1{
+    color: rgb(204, 156, 223);
+}
+
+.nome-personagem2{
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 50px;
+}
+
+.card-imagem:hover ~ .texto .nome-personagem2{
+    color: rgb(155, 219, 245);
+}
+
+.nome-personagem3{
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 50px;
+}
+
+.card-imagem:hover ~ .texto .nome-personagem3{
+    color: rgb(74,23,103);
+}
+
+.nome-personagem4{
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 50px;
+}
+
+.card-imagem:hover ~ .texto .nome-personagem4{
+    color: rgb(250, 245, 171);
+}
+
+.nome-personagem5{
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 50px;
+}
+
+.card-imagem:hover ~ .texto .nome-personagem5{
+    color: rgb(238, 53, 128);
+}
+
+.nome-personagem6{
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 50px;
+}
+
+.card-imagem:hover ~ .texto .nome-personagem6{
+    color: rgb(250, 186, 98);
+}
+
+.nome-personagem7{
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 50px;
+}
+
+.card-imagem:hover ~ .texto .nome-personagem7{
+    color: rgb(80, 195, 86);
+}
+
+.conteudo-principal3{
+    text-align: center;
+    color: rgb(23, 23, 23);
+    font-size: 20px;
+}
+
+.arcoiris-lateral-esquerda{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 120px;
+    height: 100%;
+
+    background: linear-gradient(
+        to bottom,
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        indigo,
+        violet
+    );
+
+    border-radius: 60px;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.arcoiris-lateral-direita{
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 120px;
+    height: 100%;
+
+    background: linear-gradient(
+        to bottom,
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        indigo,
+        violet
+    );
+
+    border-radius: 60px;
+    opacity: 0.7;
+    z-index: -1;
 }
