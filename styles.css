@@ -14,10 +14,17 @@ body {
     position: relative;
 }
 
+.foto-de-perfil{
+    width: 100px;
+    border-radius: 0;
+    margin-left: 120px;
+}
 
 .logo{
     font-family: 'Coiny', cursive;
     font-size: 50px;
+    color: white;
+    letter-spacing: 2px;
 }
 
 html{
@@ -32,11 +39,11 @@ html{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
+    padding: 10px 5% 60px 5%; 
     border-radius: 20px;
     margin: 15px;
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 .topo-decorado{
@@ -48,90 +55,87 @@ html{
     top: -40px;
     left: 0;
     width: 100%;
-    z-index: 0;
+    z-index: 5;
 }
 
 .nuvem{
     position: absolute;
     z-index: 2;
+    pointer-events: none;
 }
 
 .n1{
-    width: 300px;
-    left: -18px;
-    top: 20px;
+    width: 250px;
+    left: 20px;
+    top: 90px;
 }
 
 .n2{
-    width: 300px;
-    left: 190px;
-    top: 20px;
+    width: 250px;
+    left: 200px;
+    top: 105px;
 }
 
 .n3{
-    width: 300px;
-    left: 400px;
-    top: 20px;
-}
-
-.n4{
-    width: 300px;
-    right: -15px;
-    top: 20px;
-}
-
-.n5{
-    width: 300px;
-    right: 200px;
-    top: 20px;
-}
-
-.n6{
-    width: 300px;
-    right: 400px;
-    top: 20px;
-}
-
-.n7{
-    width: 300px;
-    right: 609px;
-    top: 20px;
+    width: 250px;
+    left: 380px;
+    top: 90px;
 }
 
 .n8{
-    width: 300px;
-    left: 80px;
-    top: 10px;
+    width: 250px;
+    left: 560px;
+    top: 105px;
+}
+
+.n7{
+    width: 250px;
+    right: 560px;
+    top: 90px;
+}
+
+.n6{
+    width: 250px;
+    right: 380px;
+    top: 105px;
+}
+
+.n5{
+    width: 250px;
+    right: 200px;
+    top: 90px;
+}
+
+.n4{
+    width: 250px;
+    right: 20px;
+    top: 100px;
+}
+
+.nuvem-frente{
+    position: absolute;
+    z-index: 5;
 }
 
 .n9{
-    width: 300px;
-    right: 80px;
-    top: 10px;
+    width: 320px;
+    left: -90px;
+    top: -20px;
 }
 
-.arcoiris1{
-    width: 300px;
-    height: 150px;
-    top: 20px;
-    left: 50%;
-    top: -50px;
-    transform: translateX(65%);
+.n10{
+    width: 320px;
+    right: -90px;
+    top: -20px;
 }
 
-.arcoiris2{
-    width: 300px;
-    height: 150px;
-    top: 20px;
-    left: 50%;
-    top: -50px;
-    transform: translateX(27%);
-}
+
 
 .menu{
     display: flex;
-    gap: 60px;
+    gap: 25px;
     align-items: center;
+    margin-right: 120px;
 }
 
 .menu a{
@@ -141,6 +145,7 @@ html{
     border-radius: 8px;
     border: 2px solid transparent;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .menu a:hover{
@@ -249,6 +254,8 @@ html{
     text-align: center;
     color: rgb(23, 23, 23);
     font-size: 20px;
+    padding-left: 120px;
+    padding-right: 120px;
 }
 
 .titulo{
