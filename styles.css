@@ -1,0 +1,475 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+body {
+
+    font-family: 'Fredoka', sans-serif;
+    background-color: rgb(255, 241, 243);
+    overflow-x: hidden;
+    position: relative;
+}
+
+.foto-de-perfil{
+    width: 100px;
+    border-radius: 0;
+    margin-left: 120px;
+}
+
+.logo{
+    font-family: 'Coiny', cursive;
+    font-size: 50px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+/* Estilizar a barra de navegação */
+.navbar{
+    background: linear-gradient(90deg, lightpink, pink);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5% 60px 5%; 
+    border-radius: 20px;
+    margin: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.topo-decorado{
+    position: relative;
+}
+
+.decoracao{
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.nuvem{
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.n1{
+    width: 250px;
+    left: 20px;
+    top: 90px;
+}
+
+.n2{
+    width: 250px;
+    left: 200px;
+    top: 105px;
+}
+
+.n3{
+    width: 250px;
+    left: 380px;
+    top: 90px;
+}
+
+.n8{
+    width: 250px;
+    left: 560px;
+    top: 105px;
+}
+
+.n7{
+    width: 250px;
+    right: 560px;
+    top: 90px;
+}
+
+.n6{
+    width: 250px;
+    right: 380px;
+    top: 105px;
+}
+
+.n5{
+    width: 250px;
+    right: 200px;
+    top: 90px;
+}
+
+.n4{
+    width: 250px;
+    right: 20px;
+    top: 100px;
+}
+
+.nuvem-frente{
+    position: absolute;
+    z-index: 5;
+}
+
+.n9{
+    width: 320px;
+    left: -90px;
+    top: -20px;
+}
+
+.n10{
+    width: 320px;
+    right: -90px;
+    top: -20px;
+}
+
+
+
+.menu{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin-right: 120px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.menu a:hover{
+    transform: translateY(-4px);
+    border: 2px solid rgb(255, 215, 221);
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    background-color: rgb(255, 215, 221);
+    color: rgb(255, 255, 255);
+    transform: translateY(-3px);
+}
+
+
+/* Container que limita o tamanho do Carrossel */
+.slider {
+    margin: 20px auto; /*Centraliza na tela e da margem no topo */
+    max-width: 800px; /*Largura fixa do carrossel */
+    overflow: hidden; /*Esconde o que estiver fora da caixa (as outras fotos)*/
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); /*Sombra para dar profundidade */
+}
+
+/*Div que contem as imagens alinhadas */
+.slider-content{
+    width: 400%;
+    height: 100%;
+    display: flex;
+    animation: slide 16s infinite;
+}
+
+/* Estilo de cada caixa de imagem */
+.slide-box{
+    width: 25%; /*Cada foto ocupa 25% (100% divido por 4) */
+    transition: 0.6s; /* Tempo de animação de deslize entre as fotos */
+}
+
+/* Garante que a imagem cubra todo o espaço sem distorcer */
+.slide-box img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@keyframes slide
+{
+    0% {transform: translateX(0);}
+    20% {transform: translateX(0);}
+
+    25% {transform: translateX(-25%);}
+    45% {transform: translateX(-25%);}
+
+    50% {transform: translateX(-50%);}
+    70% {transform: translateX(-50%);}
+
+    75% {transform: translateX(-75%);}
+    95% {transform: translateX(-75%);}
+
+    100% {transform: translateX(0);}
+}
+
+
+/* ESTILIZAÇÃO DO RODAPÉ DA PÁGINA */
+.rodape-principal{
+    background-color:lightpink;
+    color: white;
+    padding: 40px 0 20px 0;
+    margin-top: 50px; /*afastar da galeria */
+    text-align: center;
+}
+.container-rodape{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-wrap: wrap; /*FAZ OS ITENS PULAREM LINHAS EM TELAS PEQUENAS */
+    max-width: 1200px;
+    margin: 0 auto; /*centralizar o container na tela */
+}
+.links-sociais a
+{
+    color: white;
+    text-decoration: none;
+    margin: 0 15px; /*ESPAÇAMENTO ENTRE OS LINKS */
+    font-weight: bold;
+    transition: 0.3s;
+}
+.links-sociais a:hover{
+    color:rgb(255, 141, 158);
+    text-shadow: 0 0 5px(255,255,255, 0.2);
+}
+.rodape-inferior{
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /*LINHA DIVISÓRIA */
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.borda{
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.resumo{
+    text-align: center;
+    color: rgb(23, 23, 23);
+    font-size: 20px;
+    padding-left: 120px;
+    padding-right: 120px;
+}
+
+.titulo{
+    text-align: center;
+    color:rgb(240, 0, 120);
+    font-family:cursive;
+    font-size: 40px;
+}
+
+.conteudo-principal1{
+    text-align: center;
+    color: rgb(23, 23, 23);
+    font-size: 20px;
+} 
+
+.conteudo-principal2{
+    text-align:left;
+    color: rgb(23, 23, 23);
+    font-size: 20px;
+}
+
+.subtitulo1{
+    text-align:center;
+    color:rgb(240, 0, 120);
+    font-family:cursive;
+    font-size: 40px;
+}
+
+/* Container geral do personagem */
+.personagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+/* Caixa fixa da imagem */
+.card-imagem {
+    width: 280px;
+    height: 320px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Controla a imagem dentro da caixa */
+.card-imagem img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Animação ao passar o mouse */
+.card-imagem:hover {
+    animation: flutuar 0.6s infinite alternate ease-in-out;
+}
+
+.card-imagem img {
+    max-width: 110%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Texto */
+.texto {
+    font-size: 18px;
+    max-width: 500px;
+}
+
+/* Apenas UMA vez no CSS */
+@keyframes flutuar {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+.personagem.invertido {
+    flex-direction: row-reverse;
+}
+
+.virar {
+    transform: scaleX(-1);
+}
+
+.subtitulo2{
+    text-align:center;
+    color:rgb(240, 0, 120);
+    font-family:cursive;
+    font-size: 40px;
+}
+
+.nome-personagem1{
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 50px;
+}
+
+.card-imagem:hover ~ .texto .nome-personagem1{
+    color: rgb(204, 156, 223);
+}
+
+.nome-personagem2{
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 50px;
+}
+
+.card-imagem:hover ~ .texto .nome-personagem2{
+    color: rgb(155, 219, 245);
+}
+
+.nome-personagem3{
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 50px;
+}
+
+.card-imagem:hover ~ .texto .nome-personagem3{
+    color: rgb(74,23,103);
+}
+
+.nome-personagem4{
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 50px;
+}
+
+.card-imagem:hover ~ .texto .nome-personagem4{
+    color: rgb(250, 245, 171);
+}
+
+.nome-personagem5{
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 50px;
+}
+
+.card-imagem:hover ~ .texto .nome-personagem5{
+    color: rgb(238, 53, 128);
+}
+
+.nome-personagem6{
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 50px;
+}
+
+.card-imagem:hover ~ .texto .nome-personagem6{
+    color: rgb(250, 186, 98);
+}
+
+.nome-personagem7{
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 50px;
+}
+
+.card-imagem:hover ~ .texto .nome-personagem7{
+    color: rgb(80, 195, 86);
+}
+
+.conteudo-principal3{
+    text-align: center;
+    color: rgb(23, 23, 23);
+    font-size: 20px;
+}
+
+.arcoiris-lateral-esquerda{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 120px;
+    height: 100%;
+
+    background: linear-gradient(
+        to bottom,
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        indigo,
+        violet
+    );
+
+    border-radius: 60px;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.arcoiris-lateral-direita{
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 120px;
+    height: 100%;
+
+    background: linear-gradient(
+        to bottom,
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        indigo,
+        violet
+    );
+
+    border-radius: 60px;
+    opacity: 0.7;
+    z-index: -1;
+}
